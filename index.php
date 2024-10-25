@@ -32,25 +32,6 @@ if (isset($_GET['id']) && $id != $id_sessao) {
     exit();
 }
 
+
+require_once('public/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Console Zone</title>
-    <link rel="stylesheet" href="assets/css/style_index.css">
-    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-    <link rel="shortcut icon" href="assets/img/cad_log/logonovasemfundo.png" type="image/x-icon">
-</head>
-
-<body>
-
-
-    <script src="assets/bootstrap/bootstrap.bundle.js"></script>
-
-</body>
-
-</html>
