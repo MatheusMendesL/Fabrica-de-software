@@ -61,7 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query_select = $ligacao->executar_query('SELECT * FROM cliente WHERE Email = :email', $parametros_select);
         $results = $query_select->results[0];
         $_SESSION['user_id'] = $results->id;
-        header('location: index.php?id=' . $results->id);
+        header('location:../index.php?id=' . $results->id);
+        
         
     }
 }
