@@ -1,0 +1,21 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #234a70;
+    color:black;
+}
+
+.img{
+        width: 150px;
+        height: 150px;
+        margin: auto;
+}
+
+.btn-excluir, .btn-endereco, .btn-editar-cad{
+    text-decoration: none;
+    color: inherit;
+}
+
+label{
+    color: white;
+}

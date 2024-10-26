@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="container-fluid container-img">
         <div class="col">
-            <img src="../assets/img/cad_log/logonovasemfundo.png" alt="logo empresa" class="img_logo">
+            <img src="../assets/img/cad_log/logonovasemfundo.png" alt="logo empresa" class="img_logo img-fluid">
         </div>
     </div>
 

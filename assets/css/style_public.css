@@ -6,23 +6,20 @@ body {
 }
 
 .logo {
-    width: 7em;
+    width: 6em;
 }
 
 .container-header {
     background-color: #17232f !important;
+    height: 6em;
 }
 
 .lista {
     padding-right: 8em;
 }
 
-.lista-alinhada {
-    gap: 10em !important;
-}
-
 .btn-cad {
-    margin-top: 2.5em;
+    margin-top: 2em;
 }
 
 .link-btn {
