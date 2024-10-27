@@ -14,10 +14,9 @@ if (empty($_SESSION['user_id'])) {
 } else {
 
     $login = true;
-
 }
 
-if($login){
+if ($login) {
     $coneccao = new Database(MYSQL_CONFIG);
     $id = $_SESSION['user_id'];
     $parametros = [
@@ -52,13 +51,11 @@ if($login){
         </div>
         <div class="col-3 text-center pr-5">
             <?php if (!$login) : ?>
-                <button class="btn btn-primary btn-cad"><a href="pages/cadastro.php" class="link-btn">Cadastrar-se</a></button>
-                <button class="btn btn-primary btn-cad"><a href="pages/login.php" class="link-btn">Login</a></button>
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/cadastro.php'">Cadastrar-se</button>
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/login.php'">Login</button>
             <?php else: ?>
-                <button class="btn btn-primary btn-cad">
-                    <a href="pages/user.php" class="link-btn">
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/user.php'">
                         <i class="bi bi-person"></i> <?= $nome ?>
-                    </a>
                 </button>
             <?php endif; ?>
         </div>

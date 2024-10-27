@@ -1,21 +1,22 @@
-body{
-    padding: 0;
-    margin: 0;
-    background-color: #234a70;
-    color:black;
+body {
+    background: linear-gradient(to bottom, #1e3a5f, #546780);
+    color: #ffffff;
 }
 
-.img{
-        width: 150px;
-        height: 150px;
-        margin: auto;
+.img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
 }
 
-.btn-excluir, .btn-endereco, .btn-editar-cad{
+.btn-excluir,
+.btn-endereco,
+.btn-editar-cad,
+.btn-senha {
     text-decoration: none;
     color: inherit;
 }
 
-label{
+label {
     color: white;
 }

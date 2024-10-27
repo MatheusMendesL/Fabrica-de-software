@@ -3,8 +3,8 @@
 
 use Database_class\Database;
 
-require_once('../Database/config.php');
-require_once('../Database/Database.php');
+require_once('../../Database/config.php');
+require_once('../../Database/Database.php');
 
 $login = null;
 
@@ -31,35 +31,32 @@ if ($login) {
 
 
 <head>
-    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/style_public.css?">
+    <link rel="stylesheet" href="../../assets/css/style_public.css">
 </head>
 
 <div class="container-fluid container-header align-items-center justify-content">
     <div class="row">
         <div class="col-3 text-center">
-            <img src="../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
+            <img src="../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
         </div>
         <div class="col-6 lista">
-            <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
+            <ul class="list-unstyled list-inline text-center p-4 mt-3 mx-5 lista-alinhada">
+                <li class="list-inline-item"><a href="../../index.php" class="link">Início</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Contato</a></li>
             </ul>
         </div>
         <div class="col-3 text-center pr-5">
-            <?php if (!$login) : ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/cadastro.php'">Cadastrar-se</button>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/login.php'">Login</button>
-            <?php else: ?>
+            <?php if ($login) : ?>
                 <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
-                    <i class="bi bi-person"></i> <?= $nome ?>
+                        <i class="bi bi-person"></i> <?= $nome ?>
                 </button>
             <?php endif; ?>
         </div>
     </div>
 </div>
 
-<script src="../assets/bootstrap/bootstrap.bundle.js"></script>
+<script src="../../assets/bootstrap/bootstrap.bundle.js"></script>

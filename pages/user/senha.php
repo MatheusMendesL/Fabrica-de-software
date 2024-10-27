@@ -47,15 +47,29 @@ $nomeCompleto = trim($nomeCompleto);
 $partes = explode(" ", $nomeCompleto);
 $primeiroNome = $partes[0];
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $senha_nv = $_POST['nv_senha'];
+    $conf_senha = $_POST['conf_senha'];
+    $senha_criptografada = password_hash($conf_senha, PASSWORD_DEFAULT);
+
+    if ($senha_nv != $conf_senha) {
+        $erro = "As senhas são diferentes";
+    } else {
+        $parametros = [
+            ":id" => $id_sessao,
+            ":senha" => $senha_criptografada
+        ];
+
+        $query = $coneccao->execute_non_query('UPDATE cliente SET Senha = :senha WHERE id = :id', $parametros);
+        $msg = "Senha alterada com sucesso";
+    }
+}
 
 require_once('header_user.php');
 
-if(!empty($_GET['delete'])){
-    session_unset();
-    session_destroy();
-    $query = $coneccao->execute_non_query('DELETE FROM cliente WHERE id = :id', $parametros);
-    header("location:../../index.php");
-}
+
+
+
 
 ?>
 
@@ -66,7 +80,7 @@ if(!empty($_GET['delete'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
-    <title>Excluir conta | Console Zone</title>
+    <title>Alterar senha | Console Zone</title>
     <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?">
 </head>
 
@@ -96,14 +110,47 @@ if(!empty($_GET['delete'])){
                 <div class="row pt-2">
                     <button class="btn btn-outline-warning h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
                 </div>
-
             </div>
             <div class="col">
-                <p class="text-center mt-5 pt-5">Deseja mesmo excluir sua conta?</p>
-                <div class="col text-center pt-3">
-                    <a href="delete.php?&delete=yes" class="btn btn-outline-light w-25">Sim</a>
-                    <a href="../user.php" class="btn btn-outline-warning w-25">Não</a>
+                <div class="row pt-3">
+                    <p class="text-center">Alterar senha</p>
+                    <hr>
                 </div>
+
+                <form action="senha.php" method="post">
+
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6">
+                            <label for="nv_senha" class="form-label">Nova senha</label>
+                            <input type="password" name="nv_senha" id="1" class="form-control form-control-sm mb-1">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6">
+                            <label for="conf_senha" class="form-label">Confirme a senha</label>
+                            <input type="password" name="conf_senha" id="2" class="form-control form-control-sm mb-1">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary w-100">Mudar</button>
+                        </div>
+                    </div>
+                </form>
+                <?php if (!empty($erro)) : ?>
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6">
+                            <p class="text-warning text-center"><?= $erro ?></p>
+                        </div>
+                    </div>
+                <?php elseif (!empty($msg)) : ?>
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-6">
+                            <p class="text-success text-center"><?= $msg ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
