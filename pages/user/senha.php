@@ -54,6 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($senha_nv != $conf_senha) {
         $erro = "As senhas são diferentes";
+    
+    } elseif($senha_nv == null or $conf_senha == null){
+        $erro = "Alguma informação está vazia";
     } else {
         $parametros = [
             ":id" => $id_sessao,
@@ -81,44 +84,40 @@ require_once('header_user.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <title>Alterar senha | Console Zone</title>
-    <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?">
+    <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?v=1.1">
 </head>
 
 <body>
-    <div class="container border border-black mt-4 h-75 w-75">
+    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
         <div class="row h-100">
-            <div class="col-3 border-end border-black h-100">
+            <div class="col-3 border-end border-black h-100 shadow-lg">
                 <div class="img mt-3">
                     <img src="../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
-
                 </div>
-                <p class="text-center h2 pt-2"> <?= $primeiroNome ?></p>
+                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
 
                 <div class="row pt-4">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user.php'">Perfil</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user.php'">Perfil</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user/endereco.php'">Adicionar endereço</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/endereco.php'">Endereços</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/senha.php'">Alterar senha</button>
                 </div>
 
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-warning h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
+                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
                 </div>
             </div>
-            <div class="col">
-                <div class="row pt-3">
-                    <p class="text-center">Alterar senha</p>
-                    <hr>
-                </div>
-
+            <div class="col py-3 mx-auto shadow">
                 <form action="senha.php" method="post">
-
+                    <div class="row">
+                        <p class="text-center h2 p-3 border-bottom border-black">Alterar senha</p>
+                    </div>
                     <div class="row justify-content-center mt-3">
                         <div class="col-6">
                             <label for="nv_senha" class="form-label">Nova senha</label>
@@ -132,7 +131,7 @@ require_once('header_user.php');
                             <input type="password" name="conf_senha" id="2" class="form-control form-control-sm mb-1">
                         </div>
                     </div>
-                    <div class="row justify-content-center mt-2">
+                    <div class="row justify-content-center mt-3">
                         <div class="col-6">
                             <button type="submit" class="btn btn-primary w-100">Mudar</button>
                         </div>
@@ -141,13 +140,13 @@ require_once('header_user.php');
                 <?php if (!empty($erro)) : ?>
                     <div class="row justify-content-center mt-3">
                         <div class="col-6">
-                            <p class="text-warning text-center"><?= $erro ?></p>
+                            <p class="text-danger text-center"><?= $erro ?></p>
                         </div>
                     </div>
                 <?php elseif (!empty($msg)) : ?>
                     <div class="row justify-content-center mt-3">
                         <div class="col-6">
-                            <p class="text-success text-center"><?= $msg ?></p>
+                            <p class="text-center"><?= $msg ?></p>
                         </div>
                     </div>
                 <?php endif; ?>

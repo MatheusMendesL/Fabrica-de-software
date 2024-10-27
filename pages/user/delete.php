@@ -67,42 +67,42 @@ if(!empty($_GET['delete'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <title>Excluir conta | Console Zone</title>
-    <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?">
+    <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?v=1.1">
 </head>
 
 <body>
-    <div class="container border border-black mt-4 h-75 w-75">
+    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
         <div class="row h-100">
-            <div class="col-3 border-end border-black h-100">
+            <div class="col-3 border-end border-black h-100 shadow-lg">
                 <div class="img mt-3">
                     <img src="../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
 
                 </div>
-                <p class="text-center h2 pt-2"> <?= $primeiroNome ?></p>
+                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
 
                 <div class="row pt-4">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user.php'">Perfil</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user.php'">Perfil</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user/endereco.php'">Adicionar endereço</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/endereco.php'">Endereços</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/senha.php'">Alterar senha</button>
                 </div>
 
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-warning h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
+                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
                 </div>
 
             </div>
-            <div class="col">
+            <div class="col py-3 mx-auto shadow">
                 <p class="text-center mt-5 pt-5">Deseja mesmo excluir sua conta?</p>
                 <div class="col text-center pt-3">
-                    <a href="delete.php?&delete=yes" class="btn btn-outline-light w-25">Sim</a>
-                    <a href="../user.php" class="btn btn-outline-warning w-25">Não</a>
+                    <a href="delete.php?&delete=yes" class="btn btn-outline-danger w-25">Sim</a>
+                    <a href="../user.php" class="btn btn-outline-light w-25">Não</a>
                 </div>
             </div>
         </div>

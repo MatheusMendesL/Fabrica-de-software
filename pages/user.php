@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ":nasc" => $nasc
         ];
         $query = $coneccao->executar_query("UPDATE cliente SET Nome = :nome, Telefone = :tel, Data_nascimento = :nasc WHERE id = :id", $parametros);
-    
+        $msg = "Informações alteradas com sucesso";
     }
    
 }
@@ -83,41 +83,39 @@ require_once('../public/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
     <title>Editar Perfil | Console Zone</title>
-    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css">
+    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css?v=1.1">
 </head>
 
 <body>
-    <div class="container border border-black mt-4 h-75 w-75">
+    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
         <div class="row h-100">
-            <div class="col-3 border-end border-black h-100">
+            <div class="col-3 border-end border-black h-100 shadow-lg">
                 <div class="img mt-3">
                     <img src="../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
-
                 </div>
-                <p class="text-center h2 pt-2"> <?= $primeiroNome ?></p>
+                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
 
 
                 <div class="row pt-4">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='#'">Perfil</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='user.php'">Perfil</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../pages/user/endereco.php'">Adicionar endereço</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../pages/user/endereco.php'">Endereços</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-light h-100 w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
                 </div>
 
                 <div class="row pt-2">
-                    <button class="btn btn-outline-warning h-100 w-100" onclick="window.location.href='../pages/user/delete.php'">Excluir conta</button>
+                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../pages/user/delete.php'">Excluir conta</button>
                 </div>
             </div>
-            <div class="col">
+            <div class="col py-3 mx-auto shadow">
                 <form action="user.php" method="post">
-                    <div class="row pt-3">
-                        <p class="text-center">Perfil</p>
-                        <hr>
+                    <div class="row">
+                        <p class="text-center h2 p-3 border-bottom border-black">Perfil</p>
                     </div>
                     <div class="row justify-content-center mt-2">
                         <div class="col-6">
@@ -148,7 +146,15 @@ require_once('../public/header.php');
                     <?php if (!empty($erro)) : ?>
                         <div class="row justify-content-center mt-3">
                             <div class="col-6">
-                                <p class="text-warning text-center"><?= $erro ?></p>
+                                <p class="text-danger text-center"><?= $erro ?></p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($msg)) : ?>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-6">
+                                <p class=" text-center"><?= $msg ?></p>
                             </div>
                         </div>
                     <?php endif; ?>

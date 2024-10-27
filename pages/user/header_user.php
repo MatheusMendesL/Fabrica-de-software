@@ -42,7 +42,7 @@ if ($login) {
             <img src="../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
         </div>
         <div class="col-6 lista">
-            <ul class="list-unstyled list-inline text-center p-4 mt-3 mx-5 lista-alinhada">
+            <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
                 <li class="list-inline-item"><a href="../../index.php" class="link">Início</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
@@ -51,7 +51,7 @@ if ($login) {
         </div>
         <div class="col-3 text-center pr-5">
             <?php if ($login) : ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='../user.php'">
                         <i class="bi bi-person"></i> <?= $nome ?>
                 </button>
             <?php endif; ?>
