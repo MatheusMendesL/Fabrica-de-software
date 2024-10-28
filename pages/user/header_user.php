@@ -41,15 +41,15 @@ if ($login) {
         <div class="col-3 text-center">
             <img src="../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
         </div>
-        <div class="col-6 lista">
-            <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
+        <div class="col-5 lista">
+            <ul class="list-unstyled list-inline text-center p-4 mt-3 ml-2 lista-alinhada">
                 <li class="list-inline-item"><a href="../../index.php" class="link">Início</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Contato</a></li>
             </ul>
         </div>
-        <div class="col-3 text-center pr-5">
+        <div class="col-4 text-center pr-5">
             <?php if ($login) : ?>
                 <button class="btn btn-primary btn-cad" onclick="window.location.href='../user.php'">
                         <i class="bi bi-person"></i> <?= $nome ?>

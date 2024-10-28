@@ -10,6 +10,7 @@ require_once('../../../Database/Database.php');
 
 
 $login = null;
+$erro = null;
 
 
 if (empty($_SESSION['user_id'])) {
@@ -49,6 +50,43 @@ $nomeCompleto = trim($nomeCompleto);
 $partes = explode(" ", $nomeCompleto);
 $primeiroNome = $partes[0];
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $cep = $_POST['CEP'];
+    $endereco = $_POST['Endereco'];
+    $numero = $_POST['Numero'];
+    $bairro = $_POST['Bairro'];
+    $complemento = $_POST['Complemento'];
+    $estado = $_POST['Estado'];
+    $cidade = $_POST['Cidade'];
+
+    if (empty($cep) || empty($endereco) || empty($numero) || empty($bairro) || empty($estado) || empty($cidade)) {
+        $erro = true;
+    } else {
+        $par_id = [
+            ':id' => $id_sessao
+        ];
+        $query = $coneccao->executar_query('SELECT * FROM endereco WHERE ID_cliente = :id', $par_id);
+        $linhas_mudadas = $query->affected_rows;
+        if ($linhas_mudadas >= 3) {
+            $msg = true;
+        } else {
+            $parametros = [
+                ':cep' => $cep,
+                ':endereco' => $endereco,
+                ':numero' => $numero,
+                ':bairro' => $bairro,
+                ':complemento' => $complemento,
+                ':estado' => $estado,
+                ':cidade' => $cidade,
+                ':id' => $id_sessao
+            ];
+            $query = $coneccao->execute_non_query('INSERT INTO endereco VALUES(0, :cep, :endereco, :numero, :bairro, :complemento, :estado, :cidade, :id) ', $parametros);
+            header('location:../endereco.php');
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +108,7 @@ $primeiroNome = $partes[0];
                 <img src="../../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
             </div>
             <div class="col-6 lista">
-                <ul class="list-unstyled list-inline text-center p-4 mt-3 mx-5 lista-alinhada">
+                <ul class="list-unstyled list-inline text-center p-4 mt-3 mr-5 lista-alinhada">
                     <li class="list-inline-item"><a href="../../../index.php" class="link">Início</a></li>
                     <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
                     <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
@@ -112,30 +150,71 @@ $primeiroNome = $partes[0];
                     <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
                 </div>
             </div>
-                <div class="col">
-                <form action="user.php" method="post">
+            <div class="col py-3 mx-auto mt-2">
+                <form action="new.php" method="post">
                     <div class="row">
                         <p class="text-center h2 p-3 border-bottom border-black">Adicionar endereço</p>
                     </div>
+                    <div class="row justify-content-center mt-1">
+                        <div class="col-6">
+                            <label for="CEP" class="form-label">CEP</label>
+                            <input type="text" name="CEP" id="1" class="form-control form-control-sm mb-1" placeholder="Seu CEP">
+                        </div>
+                        <div class="col-6">
+                            <label for="Bairro" class="form-label">Bairro</label>
+                            <input type="text" name="Bairro" id="2" class="form-control form-control-sm mb-1" placeholder="Seu Bairro" readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-12">
+                            <label for="Endereco" class="form-label">Endereço</label>
+                            <input type="text" name="Endereco" id="3" class="form-control form-control-sm mb-1" placeholder="Seu Endereço" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-6">
+                            <label for="Numero" class="form-label">Número</label>
+                            <input type="number" name="Numero" id="4" class="form-control form-control-sm mb-1" placeholder="Numero da sua casa">
+                        </div>
+                        <div class="col-6">
+                            <label for="Complemento" class="form-label">Complemento</label>
+                            <input type="text" class="form-control form-control-sm mb-1" id="5" placeholder="Complemento" name="Complemento">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-6">
+                            <label for="Estado" class="form-label">Estado</label>
+                            <input type="text" name="Estado" id="6" class="form-control form-control-sm mb-1" placeholder="Seu estado" readonly>
+                        </div>
+                        <div class="col-6">
+                            <label for="Cidade" class="form-label">Cidade</label>
+                            <input type="text" name="Cidade" class="form-control form-control-sm mb-1" id="7" placeholder="Sua cidade" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100">Salvar</button>
+                        </div>
+                    </div>
                 </form>
-                </div>
-            <?php if (!empty($erro)) : ?>
-                <div class="row justify-content-center mt-3">
-                    <div class="col-6">
-                        <p class="text-danger text-center"><?= $erro ?></p>
-                    </div>
-                </div>
+            </div>
+            <?php if ($erro) : ?>
+                <script>
+                    alert('Alguma informação esta vazia')
+                </script>
             <?php elseif (!empty($msg)) : ?>
-                <div class="row justify-content-center mt-3">
-                    <div class="col-6">
-                        <p class="text-center"><?= $msg ?></p>
-                    </div>
-                </div>
+                <script>
+                    alert('Você já tem endereços demais!')
+                </script>
             <?php endif; ?>
         </div>
     </div>
     </div>
-
+    <script src="../../../assets/js/script_cep.js"></script>
     <script src="../../assets/bootstrap/bootstrap.bundle.js"></script>
 </body>
 
