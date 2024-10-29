@@ -83,69 +83,110 @@ require_once('../public/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
     <title>Editar Perfil | Console Zone</title>
-    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css?v=1.1">
+    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css">
+    <style>
+        .container {
+            max-width: 1200px;
+        }
+
+        .col-user {
+            border-right: 1px solid #000;
+        }
+
+        .img-fluid {
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .img-fluid {
+                max-width: 60px;
+            }
+
+            .h2 {
+                font-size: 1.5rem;
+            }
+
+            .col-user {
+                border-right: 0;
+                border-bottom: 1px solid #000;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container-todo{
+                height: 30em !important;
+            }
+            .col-user{
+                height: 30em;
+            }
+            
+        }   
+    </style>
 </head>
 
 <body>
-    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
-        <div class="row h-100">
-            <div class="col-3 border-end border-black h-100 shadow-lg">
-                <div class="img mt-3">
-                    <img src="../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
-                </div>
-                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
+    <div class="container border border-black mt-4 shadow-lg container-todo">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3 col-user">
+                <img src="../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid mb-2">
+                <p class="h2 text-dark"><?= $primeiroNome ?></p>
 
-
-                <div class="row pt-4">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='user.php'">Perfil</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../pages/user/endereco.php'">Endereços</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../pages/user/delete.php'">Excluir conta</button>
+                <div class="d-grid gap-4 pt-3">
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='user.php'">Perfil</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../pages/user/endereco.php'">Endereços</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-danger w-100" onclick="window.location.href='../pages/user/delete.php'">Excluir conta</button>
                 </div>
             </div>
-            <div class="col py-3 mx-auto shadow">
+
+            <div class="col-md-9 col-sm-12 py-3 mx-auto">
                 <form action="user.php" method="post">
                     <div class="row">
                         <p class="text-center h2 p-3 border-bottom border-black">Perfil</p>
                     </div>
-                    <div class="row justify-content-center mt-2">
-                        <div class="col-6">
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-12 col-md-8">
                             <label for="Nome" class="form-label">Nome</label>
-                            <input type="text" name="Nome" id="1" class="form-control form-control-sm mb-1" value="<?= $results->Nome ?>">
+                            <input type="text" name="Nome" id="1" class="form-control form-control-sm mb-1" value="<?= $result->Nome ?>">
                         </div>
                     </div>
                     <div class="row justify-content-center mt-2">
-                        <div class="col-6">
+                        <div class="col-12 col-md-8">
                             <label for="tel" class="form-label">Telefone</label>
-                            <input type="text" name="tel" id="2" class="form-control form-control-sm mb-1" value="<?= $results->Telefone ?>">
+                            <input type="text" name="tel" id="2" class="form-control form-control-sm mb-1" value="<?= $result->Telefone ?>">
                         </div>
                     </div>
                     <div class="row justify-content-center mt-2">
-                        <div class="col-6">
+                        <div class="col-12 col-md-8">
                             <label for="nasc" class="form-label">Data de nascimento</label>
-                            <input type="date" name="nasc" id="2" class="form-control form-control-sm mb-1" value="<?= $results->Data_nascimento ?>">
+                            <input type="date" name="nasc" id="2" class="form-control form-control-sm mb-1" value="<?= $result->Data_nascimento ?>">
                         </div>
                     </div>
 
                     <div class="row justify-content-center mt-3">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-primary w-100 "> Salvar </button>
+                        <div class="col-12 col-md-8">
+                            <button type="submit" class="btn btn-primary w-100">Salvar</button>
                         </div>
                     </div>
 
-
                     <?php if (!empty($erro)) : ?>
                         <div class="row justify-content-center mt-3">
-                            <div class="col-6">
+                            <div class="col-12 col-md-8">
                                 <p class="text-danger text-center"><?= $erro ?></p>
                             </div>
                         </div>
@@ -153,8 +194,8 @@ require_once('../public/header.php');
 
                     <?php if (!empty($msg)) : ?>
                         <div class="row justify-content-center mt-3">
-                            <div class="col-6">
-                                <p class=" text-center"><?= $msg ?></p>
+                            <div class="col-12 col-md-8">
+                                <p class="text-center"><?= $msg ?></p>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -163,6 +204,7 @@ require_once('../public/header.php');
             </div>
         </div>
     </div>
+
     <script src="../assets/bootstrap/bootstrap.bundle.js"></script>
 </body>
 

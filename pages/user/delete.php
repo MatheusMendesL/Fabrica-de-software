@@ -50,7 +50,7 @@ $primeiroNome = $partes[0];
 
 require_once('header_user.php');
 
-if(!empty($_GET['delete'])){
+if (!empty($_GET['delete'])) {
     session_unset();
     session_destroy();
     $query = $coneccao->execute_non_query('DELETE FROM cliente WHERE id = :id', $parametros);
@@ -68,37 +68,77 @@ if(!empty($_GET['delete'])){
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <title>Excluir conta | Console Zone</title>
     <link rel="stylesheet" href="../../assets/css/style_user_carrinho.css?v=1.1">
+    <style>
+        .container {
+            max-width: 1200px;
+        }
+
+        .col-user {
+            border-right: 1px solid #000;
+        }
+
+        .img-fluid {
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .img-fluid {
+                max-width: 60px;
+            }
+
+            .h2 {
+                font-size: 1.5rem;
+            }
+
+            .col-user {
+                border-right: 0;
+                border-bottom: 1px solid #000;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container-todo {
+                height: 30em !important;
+            }
+
+            .col-user {
+                height: 30em;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
-        <div class="row h-100">
-            <div class="col-3 border-end border-black h-100 shadow-lg">
-                <div class="img mt-3">
-                    <img src="../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
+    <div class="container border border-black mt-4 shadow-lg">
+        <div class="row row-btns">
+            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3 col-user">
+                <img src="../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid mb-2">
+                <p class="h2 text-dark"><?= $primeiroNome ?></p>
 
+                <div class="d-grid gap-4 pt-3">
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../pages/user.php'">Perfil</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../pages/user/endereco.php'">Endereços</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-danger w-100" onclick="window.location.href='../../pages/user/delete.php'">Excluir conta</button>
                 </div>
-                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
-
-                <div class="row pt-4">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user.php'">Perfil</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/endereco.php'">Endereços</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../user/senha.php'">Alterar senha</button>
-                </div>
-
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
-                </div>
-
             </div>
-            <div class="col py-3 mx-auto shadow">
+            <div class="col py-3 mx-auto">
                 <p class="text-center mt-5 pt-5">Deseja mesmo excluir sua conta?</p>
                 <div class="col text-center pt-3">
                     <a href="delete.php?&delete=yes" class="btn btn-outline-danger w-25">Sim</a>

@@ -98,56 +98,104 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../../assets/css/style_public.css">
     <link rel="stylesheet" href="../../../assets/css/style_user_carrinho.css?v=1.1">
+    <style>
+        .container {
+            max-width: 1200px;
+        }
+
+        .col-user {
+            border-right: 1px solid #000;
+        }
+
+        .img-fluid {
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
+
+            .img-fluid {
+                max-width: 60px;
+            }
+
+            .h2 {
+                font-size: 1.5rem;
+            }
+
+            .col-user {
+                border-right: 0;
+                border-bottom: 1px solid #000;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container-todo {
+                height: 10em !important;
+            }
+
+            .col-user {
+                height: 30em;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container-fluid container-header align-items-center justify-content">
-        <div class="row">
-            <div class="col-3 text-center">
-                <img src="../../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
-            </div>
-            <div class="col-6 lista">
-                <ul class="list-unstyled list-inline text-center p-4 mt-3 mr-5 lista-alinhada">
-                    <li class="list-inline-item"><a href="../../../index.php" class="link">Início</a></li>
-                    <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
-                    <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
-                    <li class="list-inline-item"><a href="#" class="link">Contato</a></li>
-                </ul>
-            </div>
-            <div class="col-3 text-center pr-5">
-                <?php if ($login) : ?>
-                    <button class="btn btn-primary btn-cad" onclick="window.location.href='../../user.php'">
-                        <i class="bi bi-person"></i> <?= $nome ?>
-                    </button>
-                <?php endif; ?>
-            </div>
+<div class="container-fluid container-header">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-3 d-flex align-items-center justify-content-center">
+            <img src="../../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center lista">
+            <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
+                <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
+                <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
+                <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
+                <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
+            </ul>
+        </div>
+        <div class="col-3 align-items-center justify-content-center pr-5 mb-4">
+            <?php if (!$login) : ?>
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/cadastro.php'">Cadastrar-se</button>
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/login.php'">Login</button>
+            <?php else: ?>
+                <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
+                    <i class="bi bi-person"></i> <?= $nome ?>
+                </button>
+            <?php endif; ?>
         </div>
     </div>
-
-    <div class="container border border-black mt-4 h-75 w-75 shadow-lg">
-        <div class="row h-100">
-            <div class="col-3 border-end border-black h-100 shadow-lg">
-                <div class="img mt-3">
-                    <img src="../../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid">
-                </div>
-                <p class="text-center h2 pt-2 text-dark"> <?= $primeiroNome ?></p>
-
-                <div class="row pt-4">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../../user.php'">Perfil</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../../user/endereco.php'">Endereços</button>
-                </div>
-
-                <div class="row pt-2">
-                    <button class="btn btn-outline-dark h-100 w-100" onclick="window.location.href='../../user/senha.php'">Alterar senha</button>
-                </div>
+</div>
 
 
-                <div class="row pt-2">
-                    <button class="btn btn-outline-danger h-100 w-100" onclick="window.location.href='../../user/delete.php'"><a href="#" class="btn-excluir">Excluir conta </a></button>
+<script src="../assets/bootstrap/bootstrap.bundle.js"></script>
+
+    <div class="container border border-black mt-4 shadow-lg">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3 col-user">
+                <img src="../../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid mb-2">
+                <p class="h2 text-dark"><?= $primeiroNome ?></p>
+
+                <div class="d-grid gap-4 pt-3">
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user.php'">Perfil</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user/endereco.php'">Endereços</button>
+                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-danger w-100" onclick="window.location.href='../../../pages/user/delete.php'">Excluir conta</button>
                 </div>
             </div>
             <div class="col py-3 mx-auto mt-2">
