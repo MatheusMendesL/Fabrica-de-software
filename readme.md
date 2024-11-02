@@ -9,5 +9,3 @@
 # Dia 03/11 Finalizar projeto com barra de pesquisa e "Catálogo"
 # Dia 04/11 off
 # Dia 05/11 até 10/11 Tentar deixar todas que tiverem responsivas
-# Dia 11/11 até 14/11 fazer página do adm
-# Dia 15/11 off tenho vida

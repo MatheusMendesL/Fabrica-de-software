@@ -77,9 +77,12 @@ require_once('../public/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Console Zone</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
         body {
             background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
             color: #ffffff !important;
+            font-family: "Poppins", sans-serif;
         }
 
         .card {
@@ -101,14 +104,12 @@ require_once('../public/header.php');
             transition: width 5s linear;
         }
 
-        .progress-bar-error{
+        .progress-bar-error {
             height: 5px;
             background-color: rgb(200, 0, 0);
             width: 100%;
             transition: width 5s linear;
         }
-
-        
     </style>
 </head>
 
@@ -119,21 +120,21 @@ require_once('../public/header.php');
                 <?php if (!$login) : ?>
                     <div class="mb-3">
                         <label for="Nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="Nome" placeholder="Digite seu nome"  required>
+                        <input type="text" class="form-control" name="Nome" placeholder="Digite seu nome" required>
                     </div>
                     <div class="mb-3">
                         <label for="Email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="Email" placeholder="Digite seu e-mail"  required>
+                        <input type="email" class="form-control" name="Email" placeholder="Digite seu e-mail" required>
                     </div>
                 <?php endif; ?>
 
                 <div class="mb-3">
                     <label for="Motivo" class="form-label">Motivo do seu contato</label>
-                    <input type="text" class="form-control" name="Motivo" placeholder="Descreva o motivo"  required>
+                    <input type="text" class="form-control" name="Motivo" placeholder="Descreva o motivo" required>
                 </div>
                 <div class="mb-3">
                     <label for="Descricao" class="form-label">Descrição</label>
-                    <textarea class="form-control" name="Descricao" rows="4" placeholder="Descreva sua mensagem"  required></textarea>
+                    <textarea class="form-control" name="Descricao" rows="4" placeholder="Descreva sua mensagem" required></textarea>
                 </div>
                 <div class="row pt-3 justify-content-center">
                     <button type="submit" class="btn btn-primary w-75" id="btn_enviar">Enviar Email</button>
@@ -169,10 +170,10 @@ require_once('../public/header.php');
         if (card) {
             card.style.display = 'block';
 
-            
+
             setTimeout(() => {
                 progressBar.style.width = '0';
-            }, 100); 
+            }, 100);
 
             setTimeout(() => {
                 card.classList.add('sumir');

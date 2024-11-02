@@ -2,14 +2,14 @@
 
 body {
     /* background: linear-gradient(to bottom, #1e3a5f, #546780); */
-    background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+    background-color: #17232f !important;
     color: #ffffff;
     font-family: "Poppins", sans-serif;
 }
 
 .img {
-    width: 150px;
-    height: 150px;
+    width: 300px !important;
+    
     margin: auto;
 }
 
@@ -23,4 +23,8 @@ body {
 
 label {
     color: white;
+}
+
+.container{
+    background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
 }

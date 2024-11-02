@@ -9,8 +9,8 @@ require_once('Database/config.php');
 require_once('Database/Database.php');
 
 
-$login = null;
 
+$login = null;
 
 if (empty($_SESSION['user_id'])) {
 
@@ -32,6 +32,38 @@ if (isset($_GET['id']) && $id != $id_sessao) {
     exit();
 }
 
+$consoles = !isset($_GET['consoles']) ? '' : $_GET['consoles'];
+$acessorios = !isset($_GET['acessorios']) ? '' : $_GET['acessorios'];
+$coneccao = new Database(MYSQL_CONFIG);
+$products = null;
+$query_results = null;
+
+
+if ($consoles) {
+    $parametro = [
+        ':id_console' => 1
+    ];
+    $query = $coneccao->executar_query("SELECT * FROM produto WHERE ID_categoria = :id_console LIMIT 5 ", $parametro);
+    $linhas_mudadas = $query->affected_rows;
+    $query_results = $query->results;
+    if ($linhas_mudadas == 0) {
+        $products = false;
+    } else {
+        $products = true;
+    }
+} elseif ($acessorios) {
+    $parametro = [
+        ':id_acessorio' => 2
+    ];
+    $query = $coneccao->executar_query("SELECT * FROM produto WHERE ID_categoria = :id_acessorio LIMIT 5", $parametro);
+    $linhas_mudadas = $query->affected_rows;
+    $query_results = $query->results;
+    if ($linhas_mudadas == 0) {
+        $products = false;
+    } else {
+        $products = true;
+    }
+}
 
 require_once('public/header_index.php');
 
@@ -44,22 +76,24 @@ require_once('public/header_index.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style_index.css?">
+    <link rel="stylesheet" href="assets/css/style_index.css">
     <title>Console Zone</title>
 </head>
 
 <body>
-    <div class="container h-75 mt-3 p-2 m-auto shadow-lg d-flex container_inicio">
+    <div class="container h-75 mt-5 p-2 m-auto shadow-lg d-flex container_inicio mb-5 escondido">
         <div class="row h-100 w-50 align-items-center">
-            <div class="col-9">
+            <div class="col-10">
                 <p class="h2 txt_principal">
                     <strong> Bem vindo a nossa loja!</strong>
                 </p>
-                <p class="h4 txt_principal">
-                    Conheça um pouco dos nosso produtos clicando abaixo!
-                </p>
+                <div class="row mt-4">
+                    <p class="h4 txt_principal">
+                        Conheça um pouco dos nossos produtos clicando abaixo!
+                    </p>
+                </div>
                 <div class="row justify-content-center btn_row">
-                    <button class="btn btn-light rounded-pill w-50">Clique aqui!</button>
+                    <button class="btn btn-light rounded-pill w-50" onclick="window.location.href = '#products'">Clique aqui!</button>
                 </div>
             </div>
         </div>
@@ -70,8 +104,83 @@ require_once('public/header_index.php');
         </div>
     </div>
 
-    <div class="container">
-        Produtos
+    <div class="container container_feedback escondido">
+        <div class="col">
+            <p class="h2 title_feedback">Feedbacks de clientes</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 gap-5 justify-content-center">
+            <div class="card w-25 h-100 card_feedback shadow-lg p-3 ">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title p-2 position-relative card_title_feedback">
+                        Mariana Vicente
+                    </h6>
+
+                    <h6 class="card-subtitle">
+                        "Variedade de produtos com preços bem acessíveis"
+                    </h6>
+                </div>
+            </div>
+            <div class="card w-25 h-100 card_feedback shadow-lg p-3 ">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title p-2 position-relative card_title_feedback">
+                        André Macedo
+                    </h6>
+
+                    <h6 class="card-subtitle">
+                        "Produtos de extrema qualidade e um ótimo atendimento online"
+                    </h6>
+                </div>
+            </div>
+            <div class="card w-25 h-100 card_feedback shadow-lg p-3 ">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title p-2 position-relative card_title_feedback">
+                        Renata Guedes
+                    </h6>
+
+                    <h6 class="card-subtitle">
+                        "Produto chegou antes do prazo e sem defeitos 10/10"
+                    </h6>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="container container_produtos escondido mt-5" id="products">
+        <div class="row justify-content-center">
+            <div class="row align-items-center justify-content-center mt-5">
+                <div class="col-6 d-flex align-items-center justify-content-center lista">
+                    <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
+                        <li class="list-inline-item"><a href="index.php?consoles=sim" class="products" id="console">Consoles</a></li>
+                        <li class="list-inline-item"><a href="index.php?acessorios=sim" class="products" id="acessorios">Acessórios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex gap-5 justify-content-between mt-5">
+            <?php if ($products == true) :  ?>
+                <?php foreach ($query_results as $resultados) : ?>
+                    <div class="card card_products bg-white shadow text-center" onclick="window.location.href = 'pages/produto.php?id=<?= $resultados->ID_produto ?>'">
+                        <img src="<?= $resultados->img_produto ?>" alt="Imagem de produto" class="img-fluid img_card mx-auto h-100">
+                        <div class="card-body d-flex flex-column p-3">
+                            <h6 class="card-title mt-3"><?= $resultados->Nome_produto ?></h6>
+                            <h6 class="card-title preco_product mt-auto"><?= $resultados->Preco ?>$</h6>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+
+            <?php elseif ($products == false) : ?>
+                <div class="row d-flex justify-content-center">
+                    <p class="alert alert-warning text-center mt-3 w-50">Não há produtos</p>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <script src="assets/bootstrap/bootstrap.bundle.js"></script>
+        <script src="assets/js/script_index.js"></script>
 </body>
+
+<?php require_once('public/footer_index.php'); ?>
+
 </html>

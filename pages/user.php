@@ -83,7 +83,7 @@ require_once('../public/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
     <title>Editar Perfil | Console Zone</title>
-    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css">
+    <link rel="stylesheet" href="../assets/css/style_user_carrinho.css?">
     <style>
         .container {
             max-width: 1200px;
@@ -142,14 +142,14 @@ require_once('../public/header.php');
 <body>
     <div class="container border border-black mt-4 shadow-lg container-todo">
         <div class="row">
-            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3 col-user">
-                <img src="../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid mb-2">
-                <p class="h2 text-dark"><?= $primeiroNome ?></p>
+            <div class="col-md-3 col-sm-12 border-bottom border-black shadow-lg col-user text-center py-3 col-user">
+                <img src="../assets/img/icons/user.png" alt="Cliente" class="img-fluid mb-2">
+                <p class="h2 text-white"><?= $primeiroNome ?></p>
 
                 <div class="d-grid gap-4 pt-3">
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='user.php'">Perfil</button>
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../pages/user/endereco.php'">Endereços</button>
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='user.php'">Perfil</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='../pages/user/endereco.php'">Endereços</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='../pages/user/senha.php'">Alterar senha</button>
                     <button class="btn btn-outline-danger w-100" onclick="window.location.href='../pages/user/delete.php'">Excluir conta</button>
                 </div>
             </div>

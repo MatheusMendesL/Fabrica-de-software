@@ -37,7 +37,7 @@ if ($login) {
 
 </head>
 
-<div class="container-fluid container-header">
+<div class="container-fluid container-header" id='inicio'>
     <div class="row align-items-center justify-content-center">
         <div class="col-3 d-flex align-items-center justify-content-center">
             <img src="assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">

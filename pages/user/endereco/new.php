@@ -93,7 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="pt-br">
 
 <head>
+    <meta charset="UTF-8">
     <title>Adicionar endereço | Console Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../../assets/css/style_public.css">
@@ -105,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .col-user {
             border-right: 1px solid #000;
+            height: 27.9em !important;
         }
 
         .img-fluid {
@@ -139,62 +142,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 border-right: 0;
                 border-bottom: 1px solid #000;
             }
+
+            .col-user .d-grid .btn {
+                font-size: 0.9rem;
+            }
+
+            .container-todo{
+                height: 72rem;
+            }
         }
 
         @media (min-width: 992px) {
             .container-todo {
-                height: 10em !important;
+                height: 28em !important;
             }
 
             .col-user {
                 height: 30em;
             }
-
         }
     </style>
 </head>
 
 <body>
-
-<div class="container-fluid container-header">
-    <div class="row align-items-center justify-content-center">
-        <div class="col-3 d-flex align-items-center justify-content-center">
-            <img src="../../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
-        </div>
-        <div class="col-6 d-flex align-items-center justify-content-center lista">
-            <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
-                <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
-                <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
-                <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
-            </ul>
-        </div>
-        <div class="col-3 align-items-center justify-content-center pr-5 mb-4">
-            <?php if (!$login) : ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/cadastro.php'">Cadastrar-se</button>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/login.php'">Login</button>
-            <?php else: ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
-                    <i class="bi bi-person"></i> <?= $nome ?>
-                </button>
-            <?php endif; ?>
+    <div class="container-fluid container-header">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-3 d-flex align-items-center justify-content-center">
+                <img src="../../../assets/img/cad_log/logonovasemfundo.png" alt="Logo empresa" class="logo ml-4 img-fluid">
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-center lista">
+                <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
+                    <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
+                    <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
+                    <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
+                    <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-3 align-items-center justify-content-center pr-5 mb-4">
+                <?php if (!$login) : ?>
+                    <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/cadastro.php'">Cadastrar-se</button>
+                    <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/login.php'">Login</button>
+                <?php else: ?>
+                    <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
+                        <i class="bi bi-person"></i> <?= $nome ?>
+                    </button>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
-</div>
 
-
-<script src="../assets/bootstrap/bootstrap.bundle.js"></script>
-
-    <div class="container border border-black mt-4 shadow-lg">
-        <div class="row">
-            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3 col-user">
-                <img src="../../../assets/img/icons/icone_cliente.png" alt="Cliente" class="img-fluid mb-2">
-                <p class="h2 text-dark"><?= $primeiroNome ?></p>
+    <div class="container border border-black mt-4 shadow-lg container-todo">
+        <div class="row h-75">
+            <div class="col-md-3 col-sm-12 border-end border-bottom border-black shadow-lg col-user text-center py-3">
+                <img src="../../../assets/img/icons/user.png" alt="Cliente" class="img-fluid mb-2">
+                <p class="h2 text-white"><?= $primeiroNome ?></p>
 
                 <div class="d-grid gap-4 pt-3">
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user.php'">Perfil</button>
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user/endereco.php'">Endereços</button>
-                    <button class="btn btn-outline-dark w-100" onclick="window.location.href='../../../pages/user/senha.php'">Alterar senha</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='../../../pages/user.php'">Perfil</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='../../../pages/user/endereco.php'">Endereços</button>
+                    <button class="btn btn-outline-light w-100" onclick="window.location.href='../../../pages/user/senha.php'">Alterar senha</button>
                     <button class="btn btn-outline-danger w-100" onclick="window.location.href='../../../pages/user/delete.php'">Excluir conta</button>
                 </div>
             </div>
@@ -204,15 +210,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <p class="text-center h2 p-3 border-bottom border-black">Adicionar endereço</p>
                     </div>
                     <div class="row justify-content-center mt-1">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="CEP" class="form-label">CEP</label>
                             <input type="text" name="CEP" id="1" class="form-control form-control-sm mb-1" placeholder="Seu CEP">
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="Bairro" class="form-label">Bairro</label>
                             <input type="text" name="Bairro" id="2" class="form-control form-control-sm mb-1" placeholder="Seu Bairro" readonly>
                         </div>
-
                     </div>
 
                     <div class="row justify-content-center mt-2">
@@ -223,21 +228,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <div class="row justify-content-center mt-2">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="Numero" class="form-label">Número</label>
-                            <input type="number" name="Numero" id="4" class="form-control form-control-sm mb-1" placeholder="Numero da sua casa">
+                            <input type="number" name="Numero" id="4" class="form-control form-control-sm mb-1" placeholder="Número da sua casa">
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="Complemento" class="form-label">Complemento</label>
                             <input type="text" class="form-control form-control-sm mb-1" id="5" placeholder="Complemento" name="Complemento">
                         </div>
                     </div>
                     <div class="row justify-content-center mt-2">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="Estado" class="form-label">Estado</label>
                             <input type="text" name="Estado" id="6" class="form-control form-control-sm mb-1" placeholder="Seu estado" readonly>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <label for="Cidade" class="form-label">Cidade</label>
                             <input type="text" name="Cidade" class="form-control form-control-sm mb-1" id="7" placeholder="Sua cidade" readonly>
                         </div>
@@ -250,18 +255,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </form>
             </div>
-            <?php if ($erro) : ?>
-                <script>
-                    alert('Alguma informação esta vazia')
-                </script>
-            <?php elseif (!empty($msg)) : ?>
-                <script>
-                    alert('Você já tem endereços demais!')
-                </script>
-            <?php endif; ?>
         </div>
     </div>
-    </div>
+
     <script src="../../../assets/js/script_cep.js"></script>
     <script src="../../assets/bootstrap/bootstrap.bundle.js"></script>
 </body>
