@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':email' => $email
         ];
 
-        $query = $ligacao->execute_non_query('INSERT INTO cliente(Nome,Email,Senha,Telefone,Data_nascimento, CPF)VALUES(:nome, :email, :senha, :telefone, :nasc, :cpf)', $parametros);
+        $query = $ligacao->execute_non_query('INSERT INTO cliente(Nome,Email,Senha,Telefone,Data_nascimento, CPF, created_at)VALUES(:nome, :email, :senha, :telefone, :nasc, :cpf, NOW())', $parametros);
         $query_select = $ligacao->executar_query('SELECT * FROM cliente WHERE Email = :email', $parametros_select);
         $results = $query_select->results[0];
         $_SESSION['user_id'] = $results->id;

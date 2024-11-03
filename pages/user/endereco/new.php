@@ -172,10 +172,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="col-6 d-flex align-items-center justify-content-center lista">
                 <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                    <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
+                    <li class="list-inline-item"><a href="../../../index.php" class="link">Início</a></li>
                     <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
                     <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
-                    <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
+                    <li class="list-inline-item"><a href="../../contato.php" class="link">Contato</a></li>
                 </ul>
             </div>
             <div class="col-3 align-items-center justify-content-center pr-5 mb-4">
@@ -183,9 +183,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/cadastro.php'">Cadastrar-se</button>
                     <button class="btn btn-primary btn-cad" onclick="window.location.href='../pages/login.php'">Login</button>
                 <?php else: ?>
-                    <button class="btn btn-primary btn-cad" onclick="window.location.href='user.php'">
+                    <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-cad me-5" onclick="window.location.href='../../user.php'">
                         <i class="bi bi-person"></i> <?= $nome ?>
                     </button>
+                    <a href="../../carrinho.php" class="text-link text-light link-offset-2 link-underline-opacity-100-hover mt-4"><i class="bi bi-bag carrinho fs-3"></i></a>
+                </div>
                 <?php endif; ?>
             </div>
         </div>

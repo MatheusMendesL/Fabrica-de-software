@@ -9,17 +9,14 @@ body {
     font-size: 17px;
 }
 
-.logo {
-    width: 6em;
+.container-header img {
+    max-width: 100px;
+    height: auto;
 }
 
 .container-header {
     background-color: #17232f !important;
-    height: 6em;
-}
-
-.lista {
-    padding-right: 8em;
+    height: 7em !important;
 }
 
 .btn-cad {
@@ -61,7 +58,7 @@ ul>a {
     color: #1E90FF; 
 }
 
-footer{
+.container_footer{
     width: 100% !important;
 }
 

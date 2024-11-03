@@ -104,9 +104,9 @@ require_once('public/header_index.php');
         </div>
     </div>
 
-    <div class="container container_feedback escondido">
-        <div class="col">
-            <p class="h2 title_feedback">Feedbacks de clientes</p>
+    <div class="container container_feedback escondido mt-3">
+        <div class="col pb-3">
+            <p class="h2 title_feedback pt-5 pb-3">Feedbacks de clientes</p>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 gap-5 justify-content-center">
@@ -146,9 +146,12 @@ require_once('public/header_index.php');
         </div>
     </div>
 
-    <div class="container container_produtos escondido mt-5" id="products">
+    <div class="container container_produtos escondido mt-5 pt-5" id="products">
+        <div class="row">
+            <p class="h2 pt-5">Produtos</p>
+        </div>
         <div class="row justify-content-center">
-            <div class="row align-items-center justify-content-center mt-5">
+            <div class="row align-items-center justify-content-center mt-2">
                 <div class="col-6 d-flex align-items-center justify-content-center lista">
                     <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
                         <li class="list-inline-item"><a href="index.php?consoles=sim" class="products" id="console">Consoles</a></li>

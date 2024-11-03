@@ -4,9 +4,9 @@ session_start();
 
 use Database_class\Database;
 
-require_once('assets/favicon/favicon.php');
-require_once('Database/config.php');
-require_once('Database/Database.php');
+require_once('../assets/favicon/favicon.php');
+require_once('../Database/config.php');
+require_once('../Database/Database.php');
 
 
 $login = null;
@@ -39,4 +39,32 @@ if(!$login){
     header("location:cadastro.php");
 }
 
+require_once('../public/header.php');
+
+$coneccao = new Database(MYSQL_CONFIG);
+$parametros = [
+    ':id' => $id_sessao
+];
+$query = $coneccao->executar_query('SELECT * FROM carrinho WHERE :id = ID_usuario', $parametros);
+$result = $query->results[0];
+$id_carrinho = $result->ID_carrinho;
+
+
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Console Zone</title>
+</head>
+<body>
+    <div class="container mt-2">
+        <div class="row mt-4">
+            <p class="h3 fw-bold">Items no seu carrinho</p>
+        </div>
+    </div>
+</body>
+</html>

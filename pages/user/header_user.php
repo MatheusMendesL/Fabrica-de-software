@@ -33,7 +33,7 @@ if ($login) {
 <head>
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/style_public.css">
+    <link rel="stylesheet" href="../../assets/css/style_public.css?">
 </head>
 
 <div class="container-fluid container-header">
@@ -51,9 +51,12 @@ if ($login) {
         </div>
         <div class="col-3 align-items-center justify-content-center pr-5 mb-4">
             <?php if ($login) : ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='../user.php'">
-                    <i class="bi bi-person"></i> <?= $nome ?>
-                </button>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-cad me-5" onclick="window.location.href='../user.php'">
+                        <i class="bi bi-person"></i> <?= $nome ?>
+                    </button>
+                    <a href="../carrinho.php" class="text-link text-light link-offset-2 link-underline-opacity-100-hover mt-4"><i class="bi bi-bag carrinho fs-3 mt-4"></a></i>
+                </div>
             <?php endif; ?>
         </div>
     </div>

@@ -55,9 +55,13 @@ if ($login) {
                 <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/cadastro.php'">Cadastrar-se</button>
                 <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/login.php'">Login</button>
             <?php else: ?>
-                <button class="btn btn-primary btn-cad" onclick="window.location.href='pages/user.php'">
-                    <i class="bi bi-person"></i> <?= $nome ?>
-                </button>
+
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-cad me-5" onclick="window.location.href='pages/user.php'">
+                        <i class="bi bi-person"></i> <?= $nome ?>
+                    </button>
+                    <a href="pages/carrinho.php" class="text-link text-light link-offset-2 link-underline-opacity-100-hover mt-4"><i class="bi bi-bag carrinho fs-3 mt-4"></a></i>
+                </div>
             <?php endif; ?>
         </div>
     </div>

@@ -1,0 +1,16 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.img_product{
+    width: 400px !important;
+    height: 23em;
+    margin-left: 10px;
+}
+
+.container_produto{
+    margin-top: 50px;
+    max-height: 30em;
+    width: 50em !important;
+}
