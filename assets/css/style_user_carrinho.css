@@ -28,3 +28,8 @@ label {
 .container{
     background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
 }
+
+.img_carrinho{
+    max-width:120px;
+    height: 120;
+}
