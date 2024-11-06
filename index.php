@@ -167,7 +167,7 @@ require_once('public/header_index.php');
                         <img src="<?= $resultados->img_produto ?>" alt="Imagem de produto" class="img-fluid img_card mx-auto h-100">
                         <div class="card-body d-flex flex-column p-3">
                             <h6 class="card-title mt-3"><?= $resultados->Nome_produto ?></h6>
-                            <h6 class="card-title preco_product mt-auto"><?= $resultados->Preco ?>$</h6>
+                            <h6 class="card-title preco_product mt-auto">R$<?= $resultados->Preco ?></h6>
                         </div>
                     </div>
 

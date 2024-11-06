@@ -102,7 +102,6 @@ body {
     width:28vh !important;
 }
 
-
 .card_products:hover{
     transform: scale(0.9);
     transition: transform 0.3s ease;

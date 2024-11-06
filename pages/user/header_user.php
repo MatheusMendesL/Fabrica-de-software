@@ -44,9 +44,9 @@ if ($login) {
         <div class="col-6 d-flex align-items-center justify-content-center lista">
             <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
                 <li class="list-inline-item"><a href="../../index.php" class="link">Início</a></li>
-                <li class="list-inline-item"><a href="#" class="link">Catálogo</a></li>
+                <li class="list-inline-item"><a href="../catalogo.php" class="link">Catálogo</a></li>
                 <li class="list-inline-item"><a href="#" class="link">Sobre</a></li>
-                <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
+                <li class="list-inline-item"><a href="../contato.php" class="link">Contato</a></li>
             </ul>
         </div>
         <div class="col-3 align-items-center justify-content-center pr-5 mb-4">

@@ -85,7 +85,7 @@ require_once('../public/header.php');
             </div>
 
             <div class="row">
-                <p class="h3 text-info"><?= $preco_produto ?>$</p>
+                <p class="h3 text-info">R$<?= $preco_produto ?></p>
             </div>
 
             <div class="row justify-content-center mt-3 mx-auto">

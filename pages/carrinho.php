@@ -165,7 +165,7 @@ require_once('../public/header.php');
                         <div class="me-3 flex-grow-1">
                             <p class="card-title fw-bold"><?= $result->Nome_produto ?> - <?= $result->Marca_produto ?></p>
                             <p class="card-title fw-bold">Quantidade: <?= $result->Quantidade ?></p>
-                            <p class="card-title fw-bold">Valor total dos produtos: <?= $result->Quantidade * $result->Preco ?>$</p>
+                            <p class="card-title fw-bold">Valor total: <?= $result->Quantidade * $result->Preco ?>$</p>
                             <a href="carrinho.php?id_produto=<?= $result->ID_produto ?>&card=sim" class=" link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link_excluir mb-3">Excluir do carrinho</a>
                         </div>
 
