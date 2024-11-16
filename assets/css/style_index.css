@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background-color: #17232f !important;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.container_inicio {
+    background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
+    border-radius: 12px;
+    max-width: 75em;
+    animation: Vindo 3s ease;
+}
+
+.container_feedback {
+    opacity: 0;
+    transform: translateY(5%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.container_feedback.animar {
+    animation: Vindo 3s ease forwards;
+}
+
+.img_ps5{
+    filter: drop-shadow(0 0 3rem #4a9edf);
+    width: 60em;
+    height: 100%;
+}
+
+.txt_principal, .btn_row{
+    margin-left: 20px;
+}
+
+.btn_row{
+    margin-bottom: 3em;  
+}
+
+.card_feedback{
+    background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
+    color:white;
+    border-left: none;
+}
+
+.title_feedback{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.escondido{
+    opacity: 0;
+    transform: translateX(-5%);
+    filter: blur(15px);
+}
+
+.aparecendo{
+    opacity: 1;
+    transform: translateZ(0);
+    filter: blur(0);
+    transition: all 1s;
+}
+
+.products {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.products::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #1E90FF;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.products:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.products:hover {
+    color: #1E90FF; 
+}
+
+.card_title_feedback{
+    bottom: 25px;
+    margin-left: -15px;
+}
+
+.card_products{
+    width:28vh !important;
+}
+
+.card_products:hover{
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.card_products:not(:hover) {
+    transform: scale(0.95);
+    transition: 2s ease;
+}
+
+.preco_product{
+    margin-top: auto !important;
+}
+
+.img_card{
+    width: 8em;
+    height: 8em !important;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.preco_product {
+    font-weight: bold;
+    color: #4a9edf;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn_row .btn {
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.lista-alinhada {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.list-inline-item a {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.container_inicio p, .container_inicio .btn_row {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

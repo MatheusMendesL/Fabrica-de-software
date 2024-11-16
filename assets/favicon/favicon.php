@@ -1,0 +1,1 @@
+<link rel="shortcut icon" href="../assets/img/cad_log/logonovasemfundo.png" type="image/x-icon">

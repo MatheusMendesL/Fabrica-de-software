@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.card_filtros {
+    width: 14em;
+    padding: 10px !important;
+}
+
+.col-filtros {
+    width: 16em;
+}
+
+.card_produto {
+
+    width: 28vh;
+}
+
+
+.card_produto:hover{
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.card_produto:not(:hover) {
+    transform: scale(0.95);
+    transition: 2s ease;
+}
+.img_produto {
+    width: 8em;
+    height: 8em !important;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.preco_product{
+    color: #4a9edf !important;
+    margin-bottom: auto !important;
+}
