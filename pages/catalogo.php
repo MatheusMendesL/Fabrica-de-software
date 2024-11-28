@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                 <div class="row d-flex gap-4">
                     <?php if ($post == false) : ?>
                         <?php foreach ($query_produtos->results as $result): ?>
-                            <div class="card card_produto text-center" onclick="window.location.href = 'produto.php?id=<?= $result->ID_produto ?>'">
+                            <div class="card card_produto text-center" onclick="window.location.href = 'produto.php?id=<?= $result->ID_produto ?>'" style="width: 13em !important;">
                                 <div class="card-body">
                                     <img src="<?= $result->img_produto ?>" alt="Produto" class="img-fluid img_produto">
                                     <div class="card-body d-flex flex-column p-3">

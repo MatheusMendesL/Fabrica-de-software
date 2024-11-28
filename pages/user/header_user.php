@@ -34,6 +34,7 @@ if ($login) {
     <link rel="stylesheet" href="../../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/style_public.css?">
+    <link rel="shortcut icon" href="../../assets/img/cad_log/logonovasemfundo.png" type="image/x-icon">
 </head>
 
 <div class="container-fluid container-header">
@@ -43,10 +44,10 @@ if ($login) {
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center lista">
             <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                <li class="list-inline-item"><a href="../../index.php" class="link">Início</a></li>
-                <li class="list-inline-item"><a href="../catalogo.php" class="link">Catálogo</a></li>
-                <li class="list-inline-item"><a href="../sobre.php" class="link">Sobre</a></li>
-                <li class="list-inline-item"><a href="../contato.php" class="link">Contato</a></li>
+                <li class="list-inline-item"><a href="../../index.php" class="link p-2">Início</a></li>
+                <li class="list-inline-item"><a href="../catalogo.php" class="link p-2">Catálogo</a></li>
+                <li class="list-inline-item"><a href="../sobre.php" class="link p-2">Sobre</a></li>
+                <li class="list-inline-item"><a href="../contato.php" class="link p-2">Contato</a></li>
             </ul>
         </div>
         <div class="col-3 align-items-center justify-content-center pr-5 mb-4">

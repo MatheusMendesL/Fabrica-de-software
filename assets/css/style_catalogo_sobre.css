@@ -12,12 +12,6 @@ body {
     width: 16em;
 }
 
-.card_produto {
-
-    width: 28vh;
-}
-
-
 .card_produto:hover{
     transform: scale(0.9);
     transition: transform 0.3s ease;
@@ -37,4 +31,10 @@ body {
 .preco_product{
     color: #4a9edf !important;
     margin-bottom: auto !important;
+}
+
+.container-sobre{
+    background: linear-gradient(135deg, #17232f, #1a3c6b, #2368a2, #4a9edf);
+    max-width: 75em;
+    
 }

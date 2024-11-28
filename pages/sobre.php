@@ -39,13 +39,13 @@ if (isset($_GET['id']) && $id != $id_sessao) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo de produtos | Console Zone</title>
-    <link rel="stylesheet" href="../assets/css/style_catalogo_sobre.css?">
+    <link rel="stylesheet" href="../assets/css/style_catalogo_sobre.css">
 </head>
 
 <body>
 
 
-    <div class="container mt-2 bg-secondary rounded p-4 ">
+    <div class="container mt-2 container-sobre rounded p-4 ">
         <div class="row">
             <p class="h1">Sobre</p>
         </div>

@@ -4,7 +4,7 @@ session_start();
 
 use Database_class\Database;
 
-require_once('../../assets/favicon/favicon.php');
+
 require_once('../../Database/config.php');
 require_once('../../Database/Database.php');
 

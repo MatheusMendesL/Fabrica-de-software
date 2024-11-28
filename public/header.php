@@ -43,10 +43,10 @@ if ($login) {
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center lista">
             <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                <li class="list-inline-item"><a href="../index.php" class="link">Início</a></li>
-                <li class="list-inline-item"><a href="../pages/catalogo.php" class="link">Catálogo</a></li>
-                <li class="list-inline-item"><a href="../pages/sobre.php" class="link">Sobre</a></li>
-                <li class="list-inline-item"><a href="../pages/contato.php" class="link">Contato</a></li>
+                <li class="list-inline-item"><a href="../index.php" class="link p-2">Início</a></li>
+                <li class="list-inline-item"><a href="../pages/catalogo.php" class="link p-2">Catálogo</a></li>
+                <li class="list-inline-item"><a href="../pages/sobre.php" class="link p-2">Sobre</a></li>
+                <li class="list-inline-item"><a href="../pages/contato.php" class="link p-2">Contato</a></li>
             </ul>
         </div>
         <div class="col-3 align-items-center justify-content-center pr-5 mb-4">

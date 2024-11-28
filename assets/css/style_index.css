@@ -140,7 +140,7 @@ body {
 
 .lista-alinhada {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
+    
     border-radius: 8px;
 }
 
@@ -152,4 +152,8 @@ body {
 .container_inicio p, .container_inicio .btn_row {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.lista{
+    padding: 2000px;
 }

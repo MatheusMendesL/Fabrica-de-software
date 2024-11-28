@@ -4,10 +4,6 @@ session_start();
 
 use Database_class\Database;
 
-
-require_once('assets/favicon/favicon.php');
-
-
 require_once('Database/config.php');
 require_once('Database/Database.php');
 
@@ -89,9 +85,6 @@ require_once('public/header_index.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style_index.css">
-
-    <link rel="shortcut icon" href="/assets/img/cad_log/logonovasemfundo.png" type="image/x-icon">
-
     <title>Console Zone</title>
 </head>
 
@@ -169,8 +162,8 @@ require_once('public/header_index.php');
             <div class="row align-items-center justify-content-center mt-2">
                 <div class="col-6 d-flex align-items-center justify-content-center lista">
                     <ul class="list-unstyled list-inline text-center p-4 mt-3 lista-alinhada">
-                        <li class="list-inline-item"><a href="index.php?consoles=sim" class="products" id="console" style="<?= $estilo_console ?>">Consoles</a></li>
-                        <li class="list-inline-item"><a href="index.php?acessorios=sim" class="products" id="acessorios" style="<?= $estilo_acessorios ?>">Acessórios</a></li>
+                        <li class="list-inline-item"><a href="index.php?consoles=sim" class="products p-3" id="console" style="<?= $estilo_console ?>">Consoles</a></li>
+                        <li class="list-inline-item"><a href="index.php?acessorios=sim" class="products p-3" id="acessorios" style="<?= $estilo_acessorios ?>">Acessórios</a></li>
 
                     </ul>
                 </div>
@@ -179,7 +172,7 @@ require_once('public/header_index.php');
         <div class="row d-flex gap-5 justify-content-between mt-5">
             <?php if ($products == true) :  ?>
                 <?php foreach ($query_results as $resultados) : ?>
-                    <div class="card card_products bg-white shadow text-center" onclick="window.location.href = 'pages/produto.php?id=<?= $resultados->ID_produto ?>'">
+                    <div class="card card_products bg-white shadow text-center" onclick="window.location.href = 'pages/produto.php?id=<?= $resultados->ID_produto ?>'" style="width: 11em !important;">
                         <img src="<?= $resultados->img_produto ?>" alt="Imagem de produto" class="img-fluid img_card mx-auto h-100">
                         <div class="card-body d-flex flex-column p-3">
                             <h6 class="card-title mt-3"><?= $resultados->Nome_produto ?></h6>
