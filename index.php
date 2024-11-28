@@ -8,7 +8,6 @@ require_once('Database/config.php');
 require_once('Database/Database.php');
 
 
-
 $login = null;
 
 if (empty($_SESSION['user_id'])) {
