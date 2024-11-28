@@ -47,7 +47,6 @@ if ($consoles) {
     ];
 
     $estilo_console = "color: #1E90FF;";
-
     $query = $coneccao->executar_query("SELECT * FROM produto WHERE ID_categoria = :id_console LIMIT 5 ", $parametro);
     $linhas_mudadas = $query->affected_rows;
     $query_results = $query->results;
