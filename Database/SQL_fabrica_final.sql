@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `items_carrinho` (
   KEY `ID_produto` (`ID_produto`),
   CONSTRAINT `ID_carrinho` FOREIGN KEY (`ID_carrinho`) REFERENCES `carrinho` (`ID_carrinho`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ID_produto` FOREIGN KEY (`ID_produto`) REFERENCES `produto` (`ID_produto`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela loja_games.items_carrinho: ~5 rows (aproximadamente)
 INSERT INTO `items_carrinho` (`ID_item`, `ID_carrinho`, `ID_produto`, `Quantidade`) VALUES
@@ -120,16 +120,16 @@ CREATE TABLE IF NOT EXISTS `produto` (
   PRIMARY KEY (`ID_produto`),
   KEY `ID_categoria` (`ID_categoria`),
   CONSTRAINT `ID_categoria` FOREIGN KEY (`ID_categoria`) REFERENCES `categoria_produto` (`ID_categoria`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela loja_games.produto: ~6 rows (aproximadamente)
 INSERT INTO `produto` (`ID_produto`, `Nome_produto`, `Descricao`, `Preco`, `Marca_produto`, `img_produto`, `Disponivel`, `ID_categoria`) VALUES
-	(3, 'PS4 Slim 1tb', 'PS4 ', 24.5, 'Sony', 'https://cdn.awsli.com.br/2500x2500/118/118222/produto/28598269/d7c774cb5e.jpg', 1, 1),
-	(5, 'Xbox Series S 500gb', 'Xbox', 3000, 'Microsoft', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIcMBseeQ2i91yBmJ_3Gzu708ahxfdopiH6g&s', 1, 1),
-	(6, 'PS3 500GB', 'PS3', 2500, 'Sony', 'https://i5.walmartimages.com/seo/Restored-Sony-Playstation-3-PS3-Slim-160GB-Video-Game-Console-Black-Controller-HDMI-Refurbished_20c4061c-ec66-4b9b-bc2b-86f2bf1b637b_1.a35496f038a185fdf0f67ebfb5d6ff8b.jpeg', 1, 1),
-	(7, 'Xbox 360 240gb', 'Xbox', 1200, 'Microsoft', 'https://images.tcdn.com.br/img/img_prod/1211726/xbox_360_4gb_seminovo_1259_1_d6bae2d4ea0fcfa7bb3ee1b2bad1224d.png', 1, 1),
-	(8, 'Nintendo switch 200gb', 'Nintendo', 2000, 'Nintendo', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OWin3psxf-WhgBivIAFXyg8H41__nHP0vg&s', 1, 1),
-	(9, 'Controle PS5', 'controle', 300, 'Sony', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1M8eucIoZvtrGP7bxy7HcAYEWgWfIRsFmeQ&s', 1, 2);
+	(3, 'PS4 Slim 1tb', 'PS4 ', 2200, 'Sony', 'https://cdn.awsli.com.br/2500x2500/118/118222/produto/28598269/d7c774cb5e.jpg', 1, 1),
+	(5, 'Xbox Series S 500gb', 'Xbox', 2615, 'Microsoft', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIcMBseeQ2i91yBmJ_3Gzu708ahxfdopiH6g&s', 1, 1),
+	(6, 'PS3 500GB', 'PS3', 1599, 'Sony', 'https://i5.walmartimages.com/seo/Restored-Sony-Playstation-3-PS3-Slim-160GB-Video-Game-Console-Black-Controller-HDMI-Refurbished_20c4061c-ec66-4b9b-bc2b-86f2bf1b637b_1.a35496f038a185fdf0f67ebfb5d6ff8b.jpeg', 1, 1),
+	(7, 'Xbox 360 240gb', 'Xbox', 1116, 'Microsoft', 'https://images.tcdn.com.br/img/img_prod/1211726/xbox_360_4gb_seminovo_1259_1_d6bae2d4ea0fcfa7bb3ee1b2bad1224d.png', 1, 1),
+	(8, 'Nintendo switch 200gb', 'Nintendo', 1889, 'Nintendo', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OWin3psxf-WhgBivIAFXyg8H41__nHP0vg&s', 1, 1),
+	(9, 'Controle PS5', 'controle', 319, 'Sony', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1M8eucIoZvtrGP7bxy7HcAYEWgWfIRsFmeQ&s', 1, 2);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
