@@ -1,16 +1,31 @@
-# Software Factory
+# 🏭 Software Factory
 
-A project that the group needs to development a little system about a theme
-
-## Overview
-
-**Software Factory** is a project of my school with an apresentation. 
-Is a simple ecommerce(not complete), the group also needs to do
-analisys, db model and the code about it.
+A school project where the group develops a small system based on a chosen theme.
 
 ---
 
-## Tech stack 
+## 📖 Overview
 
-Frontend and backend is only PHP, in the front the diferencial is the bootstrap
+**Software Factory** is a school project that includes a presentation.  
+The system is a **simple e-commerce** (not fully functional).  
+Besides coding, the project involves:  
 
+- System analysis  
+- Database modeling  
+- PHP development  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** PHP + Bootstrap  
+- **Backend:** PHP  
+
+> Note: The frontend stands out for using Bootstrap for styling.  
+
+---
+
+## 📂 Project Structure
+
+- **Frontend:** PHP pages styled with Bootstrap  
+- **Backend:** PHP code for data handling and database connection  
